@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harsh Panwar — Resume</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --bg: #0a0c0f;
+    --surface: #111418;
+    --border: #1e2530;
+    --accent: #00d4aa;
+    --accent-dim: #00d4aa22;
+    --text: #e8edf3;
+    --text-muted: #7a8a9a;
+    --text-dim: #4a5a6a;
+    --green: #00d4aa;
+    --yellow: #f5c842;
+    --red: #ff6b6b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 52px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: start;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 28px;
+  }
+
+  .name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.5px;
+  }
+
+  .name span {
+    color: var(--accent);
+  }
+
+  .tagline {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+
+  .contact {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .contact a, .contact span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-decoration: none;
+    display: block;
+  }
+
+  .contact a:hover { color: var(--accent); }
+
+  .contact .highlight {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 26px;
+  }
+
+  .section-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── SUMMARY ── */
+  .summary {
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.7;
+    max-width: 680px;
+  }
+
+  .summary strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* ── BOUNTY BADGE ── */
+  .bounty-strip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-dim);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 5px 12px;
+    margin-top: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* ── EXPERIENCE ── */
+  .exp-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4px;
+    margin-bottom: 20px;
+  }
+
+  .exp-item:last-child { margin-bottom: 0; }
+
+  .exp-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+
+  .exp-title {
+    font-weight: 600;
+    font-size: 13.5px;
+    color: var(--text);
+  }
+
+  .exp-company {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .exp-company .type {
+    color: var(--text-dim);
+    font-weight: 400;
+  }
+
+  .exp-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+
+  .exp-amount {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--yellow);
+    font-weight: 500;
+    text-align: right;
+  }
+
+  .exp-desc {
+    color: var(--text-muted);
+    font-size: 12.5px;
+    line-height: 1.65;
+    margin-top: 5px;
+  }
+
+  .exp-desc li {
+    list-style: none;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+  }
+
+  .exp-desc li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .pr-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 7px;
+  }
+
+  .pr-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+
+  .pr-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  /* ── PROJECTS ── */
+  .project-item {
+    margin-bottom: 16px;
+    padding: 14px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .project-item:last-child { margin-bottom: 0; }
+
+  .project-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+
+  .project-name {
+    font-weight: 600;
+    font-size: 13.5px;
+    color: var(--text);
+  }
+
+  .project-stack {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+  }
+
+  .project-desc {
+    color: var(--text-muted);
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+
+  .project-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    text-decoration: none;
+    margin-top: 5px;
+    display: inline-block;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .skill-group {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 12px 14px;
+  }
+
+  .skill-group-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    color: var(--text-muted);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 2px 7px;
+    border-radius: 2px;
+  }
+
+  .tag.learning {
+    color: var(--yellow);
+    border-color: #f5c84244;
+  }
+
+  .tag.primary {
+    color: var(--accent);
+    border-color: var(--accent-dim);
+  }
+
+  /* ── EDUCATION ── */
+  .edu-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    align-items: start;
+  }
+
+  .edu-school {
+    font-weight: 600;
+    font-size: 13.5px;
+    color: var(--text);
+  }
+
+  .edu-degree {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    margin-top: 3px;
+  }
+
+  .edu-note {
+    font-size: 12px;
+    color: var(--text-dim);
+    font-style: italic;
+    margin-top: 3px;
+  }
+
+  .edu-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    text-align: right;
+  }
+
+  /* ── TWO COL ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff; color: #111; }
+    :root {
+      --bg: #fff;
+      --surface: #f5f5f5;
+      --border: #ddd;
+      --accent: #007a5e;
+      --accent-dim: #007a5e11;
+      --text: #111;
+      --text-muted: #444;
+      --text-dim: #888;
+      --yellow: #b5960a;
+    }
+    .page { padding: 32px 40px; }
+    a { color: inherit; }
+  }
+
+  @media (max-width: 640px) {
+    .page { padding: 24px 20px; }
+    .header { grid-template-columns: 1fr; }
+    .contact { text-align: left; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div>
+      <div class="name">Harsh<span>.</span>Panwar</div>
+      <div class="tagline">Software Engineer · Open Source · Cloud & DevOps</div>
+    </div>
+    <div class="contact">
+      <span class="highlight"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0171606f76607369607372697660736569606f373641666c60686d2f626e6c">[email&#160;protected]</a></span>
+      <a href="https://github.com/Harsh9485" target="_blank">github.com/Harsh9485</a>
+      <a href="https://linkedin.com/in/harshpanwar987" target="_blank">linkedin.com/in/harshpanwar987</a>
+      <a href="https://algora.io/Harsh9485/profile" target="_blank">algora.io/Harsh9485</a>
+      <span>Bikaner, Rajasthan, India · Remote</span>
+    </div>
+  </header>
+
+  <!-- SUMMARY -->
+  <section class="section">
+    <div class="section-title">Profile</div>
+    <p class="summary">
+      Software engineer with hands-on experience in <strong>Go, Terraform, Docker, and AWS</strong>, focused on cloud infrastructure and developer tooling. Proven ability to navigate large, unfamiliar codebases and deliver production-quality contributions independently — demonstrated through merged PRs in real company repositories. Fast learner who adapts quickly across domains and stacks.
+    </p>
+    <div class="bounty-strip">
+      ◈ &nbsp;$970 USD earned through paid open source bounties &nbsp;·&nbsp; 6 merged PRs &nbsp;·&nbsp; Coder + Prequel
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section">
+    <div class="section-title">Experience</div>
+
+    <!-- Coder -->
+    <div class="exp-item">
+      <div>
+        <div class="exp-header">
+          <div>
+            <span class="exp-title">Open Source Contributor</span>
+            &nbsp;·&nbsp;
+            <span class="exp-company">Coder <span class="type">(Freelance / Bounty)</span></span>
+          </div>
+          <span class="exp-date">Aug 2025 – Oct 2025</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);">coder.com · Cloud Development Environments · Open Source</div>
+          <div class="exp-amount">$450 ($250 + $200)</div>
+        </div>
+        <ul class="exp-desc">
+          <li>Built the <strong>Sourcegraph Amp module</strong> for coder/registry — Coder's official Terraform template registry. Implemented MCP server configuration, system prompt support, AgentAPI integration, and a full test suite. Coordinated across multiple reviewers and iterated on feedback over 51 commits.</li>
+          <li>Added <strong>AgentAPI support to the Aider module</strong> — implemented three operational modes (chat, task prompt, single-run), MCP server configuration, and resolved a version-pinned flag regression. PR involved 56 commits and cross-team review.</li>
+        </ul>
+        <div class="pr-links">
+          <a class="pr-link" href="https://github.com/coder/registry/pull/257" target="_blank">PR #257 — Sourcegraph Amp Module</a>
+          <a class="pr-link" href="https://github.com/coder/registry/pull/356" target="_blank">PR #356 — Aider AgentAPI Support</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prequel -->
+    <div class="exp-item">
+      <div>
+        <div class="exp-header">
+          <div>
+            <span class="exp-title">Open Source Contributor</span>
+            &nbsp;·&nbsp;
+            <span class="exp-company">Prequel <span class="type">(Freelance / Bounty)</span></span>
+          </div>
+          <span class="exp-date">Jun 2025 – Jul 2025</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-dim);">prequel.dev · Reliability & Observability Tooling · Open Source</div>
+          <div class="exp-amount">$520 ($250+$150+$100+$20)</div>
+        </div>
+        <ul class="exp-desc">
+          <li>Contributed 4 paid bounty PRs to Prequel's open source reliability tooling — reproducing high-severity failures in Temporal, Redpanda, and MongoDB, plus creating a walkthrough guide. Stack: Go, Makefile. Each issue had multiple competing claimants; won the bounty on all four.</li>
+        </ul>
+        <div class="pr-links">
+          <a class="pr-link" href="https://github.com/prequel-dev/cre/pull/56" target="_blank">cre #56</a>
+          <a class="pr-link" href="https://github.com/prequel-dev/cre/pull/79" target="_blank">cre #79</a>
+          <a class="pr-link" href="https://github.com/prequel-dev/preq/pull/60" target="_blank">preq #60</a>
+          <a class="pr-link" href="https://github.com/prequel-dev/cre/pull/101" target="_blank">cre #101</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section">
+    <div class="section-title">Projects</div>
+
+    <div class="project-item">
+      <div class="project-header">
+        <span class="project-name">Reviewly — PR Quality Filter MCP Server</span>
+        <span class="project-stack">TypeScript · MCP · GitHub API</span>
+      </div>
+      <p class="project-desc">
+        Built for the Microsoft Agent Hackathon. An MCP server that scores pull requests by quality metrics so maintainers can prioritize review time. Integrates with GitHub Copilot and surfaces low-quality PRs before they consume reviewer bandwidth.
+      </p>
+      <a class="project-link" href="https://github.com/Harsh9485/Reviewly" target="_blank">→ github.com/Harsh9485/Reviewly</a>
+    </div>
+
+  </section>
+
+  <!-- SKILLS + EDUCATION -->
+  <div class="two-col">
+
+    <!-- SKILLS -->
+    <section class="section" style="margin-bottom:0;">
+      <div class="section-title">Skills</div>
+      <div class="skills-grid" style="grid-template-columns:1fr 1fr;gap:10px;">
+
+        <div class="skill-group">
+          <div class="skill-group-title">Languages</div>
+          <div class="skill-tags">
+            <span class="tag primary">Go</span>
+            <span class="tag primary">Python</span>
+            <span class="tag primary">JavaScript</span>
+            <span class="tag learning">Rust ↗</span>
+            <span class="tag learning">Scala ↗</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">Cloud & Infra</div>
+          <div class="skill-tags">
+            <span class="tag primary">Terraform</span>
+            <span class="tag primary">Docker</span>
+            <span class="tag primary">AWS</span>
+            <span class="tag learning">Kubernetes ↗</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">Backend / API</div>
+          <div class="skill-tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Git</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">Frontend</div>
+          <div class="skill-tags">
+            <span class="tag">React</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML/CSS</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION + PROFILES -->
+    <div>
+      <section class="section" style="margin-bottom:20px;">
+        <div class="section-title">Education</div>
+        <div class="edu-item">
+          <div>
+            <div class="edu-school">Maharaja Ganga Singh University</div>
+            <div class="edu-degree">BCA — Computer Science</div>
+            <div class="edu-note">Discontinued after 1st year due to financial constraints. Continued learning independently through open source work and self-directed study.</div>
+          </div>
+          <div class="edu-date">Jul 2023<br>Mar 2024</div>
+        </div>
+      </section>
+
+      <section class="section" style="margin-bottom:0;">
+        <div class="section-title">Open Source</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <a href="https://algora.io/Harsh9485/profile" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);text-decoration:none;">algora.io/Harsh9485 →</a>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--yellow);">$970 earned</span>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-dim);">6 bounties · 6 merged PRs · Coder, Prequel</div>
+          <a href="https://github.com/Harsh9485" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-muted);text-decoration:none;margin-top:2px;">github.com/Harsh9485 →</a>
+        </div>
+      </section>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div style="margin-top:32px;padding-top:16px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text-dim);">Open to remote internship → full-time · India · Willing to work across timezones</span>
+    <span style="font-fa
